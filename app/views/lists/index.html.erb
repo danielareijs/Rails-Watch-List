@@ -16,7 +16,7 @@
   <div class="row justify-content-center mt-3">
     <% @lists.each do |list| %>
       <div class="col-6 col-md-4">
-        <%= link_to list_path(list) do %>
+        <%= link_to list_path(list), { class: "text-decoration-none" } do %>
           <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/400x600/?horror)">
             <h3><%= list.name %></h3>
           </div>
