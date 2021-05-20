@@ -1,60 +1,46 @@
+<div class="banner banner-index">
+  <h1>Movie Time</h1>
+</div>
+<div class="container my-5">
 
-<div class="container">
-  <h1>Lists#index</h1>
-  <div class="row">
-    <div class="col-6">
-      <table class="border">
-        <thead>
-          <tr>
-            <td>id</td>
-            <td>title</td>
-            <td>overview</td>
-            <td>poster_url</td>
-            <td>rating</td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @movies.each do |movie| %>
-            <tr>
-              <td><%= movie.id %></td>
-              <td><%= movie.title %></td>
-              <td><%= movie.overview %></td>
-              <!-- <td><%= movie.poster_url %></td> -->
-              <td><%= movie.rating %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-2">
-      <table class="border">
-        <thead>
-          <tr>
-            <td>id</td>
-            <td>name</td>
-          </tr>
-        </thead>
-        <tbody>
-           <% @lists.each do |list| %>
-            <tr>
-              <td><%= list.id %></td>
-              <td><%= list.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-4">
-      <table class="border">
-        <thead>
-          <tr>
-            <td>id</td>
-            <td>comment</td>
-            <td>movie_id</td>
-            <td>lis_id</td>
-          </tr>
-        </thead>
-      </table>
+  <!-- Error message if movie already exists -->
+      <% flash.each do |type, msg| %>
+      <div class="alert alert-warning ">
+        <%= msg %>
+      </div>
+    <% end %>
+
+  <div class="d-flex justify-content-end mt-5">
+    <%= link_to 'New list', lists_path, "data-toggle" => "modal", "data-target" => "#create-new-list", class: 'btn btn-dark' %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <% @lists.each do |list| %>
+      <div class="col-6 col-md-4">
+        <%= link_to list_path(list) do %>
+          <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/400x600/?horror)">
+            <h3><%= list.name %></h3>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<!-- Create list modal -->
+<div class="modal fade" id="create-new-list" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New list</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@list) do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Add list", class: 'btn btn-outline-success w-100'%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

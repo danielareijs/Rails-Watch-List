@@ -1,0 +1,22 @@
+.banner {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    text-align: center;
+    color: white;
+  }
+}
+
+.banner-index {
+  background-image: url("movietime.jpg");
+  background-size: cover;
+}
+
+.banner-show {
+  background-image: url("horror.jpg");
+  background-size: cover;
+}
+
