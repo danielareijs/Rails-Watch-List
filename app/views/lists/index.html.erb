@@ -1,0 +1,60 @@
+
+<div class="container">
+  <h1>Lists#index</h1>
+  <div class="row">
+    <div class="col-6">
+      <table class="border">
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>title</td>
+            <td>overview</td>
+            <td>poster_url</td>
+            <td>rating</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @movies.each do |movie| %>
+            <tr>
+              <td><%= movie.id %></td>
+              <td><%= movie.title %></td>
+              <td><%= movie.overview %></td>
+              <!-- <td><%= movie.poster_url %></td> -->
+              <td><%= movie.rating %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2">
+      <table class="border">
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>name</td>
+          </tr>
+        </thead>
+        <tbody>
+           <% @lists.each do |list| %>
+            <tr>
+              <td><%= list.id %></td>
+              <td><%= list.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <table class="border">
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>comment</td>
+            <td>movie_id</td>
+            <td>lis_id</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
