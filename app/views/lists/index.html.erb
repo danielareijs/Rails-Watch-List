@@ -1,4 +1,4 @@
-<div class="banner banner-index">
+<div class="banner banner-index " style="background-image: url(<%= cl_image_path 'aevvkuebbkonfteo1gdp' %>)">
   <h1>Movie Time</h1>
 </div>
 <div class="container my-5">
@@ -11,13 +11,13 @@
     <% end %>
 
   <div class="d-flex justify-content-end mt-5">
-    <%= link_to 'New list', lists_path, "data-toggle" => "modal", "data-target" => "#create-new-list", class: 'btn btn-dark' %>
+    <%= link_to 'New list', root_path, "data-toggle" => "modal", "data-target" => "#create-new-list", class: 'btn btn-dark' %>
   </div>
   <div class="row justify-content-center mt-3">
     <% @lists.each do |list| %>
       <div class="col-6 col-md-4">
         <%= link_to list_path(list), { class: "text-decoration-none" } do %>
-          <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/400x600/?horror)">
+          <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
             <h3><%= list.name %></h3>
           </div>
         <% end %>
@@ -38,6 +38,7 @@
       <div class="modal-body">
         <%= simple_form_for(@list) do |f| %>
           <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit "Add list", class: 'btn btn-outline-success w-100'%>
         <% end %>
       </div>
