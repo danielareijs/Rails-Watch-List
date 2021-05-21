@@ -29,6 +29,12 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
+  # def remove_movie
+  #   @list = List.find(params[:id])
+  #   @movie = Movie.find(@list.movies)
+  #   redirect_to root_path
+  # end
+
   private
 
   def list_params

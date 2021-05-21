@@ -22,7 +22,6 @@
 
   <div class="cards">
     <% @movies.each do |movie| %>
-      <!-- <div class="col-12 col-sm-6"> -->
         <div class="card-trip mb-3">
           <%= image_tag movie.poster_url %>
           <div class="card-trip-infos">
@@ -30,14 +29,16 @@
               <h2><%= movie.title %> | <%= movie.rating %> <i class="fas fa-star"></i></h2>
               <p><%= movie.overview %></p>
             </div>
-            <div class="mt-4 comments">
+            <div class="mt-3 comments">
               <% movie.bookmarks.each do |bookmark| %>
               <p class="my-1"><em><i class="fas fa-quote-right"></i> <%= bookmark.comment %></em></p>
               <% end %>
             </div>
           </div>
+          <%= link_to list_path(@list), { class: 'delete-btn' }, method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         </div>
-      <!-- </div> -->
     <% end %>
   </div>
 

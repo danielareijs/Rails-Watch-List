@@ -44,6 +44,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .card-trip > img {
@@ -73,7 +74,18 @@
 
 .comments {
   height: 32px;
-   overflow: scroll;
+  overflow: scroll;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  text-decoration: none;
+   &:hover {
+    opacity: 0.6;
+   }
 }
 
 
