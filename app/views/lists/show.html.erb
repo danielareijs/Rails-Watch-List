@@ -20,9 +20,9 @@
     <%= link_to 'Remove list', list_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark m-1" %>
   </div>
 
-  <div class="row justify-content-centers mt-3">
+  <div class="cards">
     <% @movies.each do |movie| %>
-      <div class="col-12 col-sm-6">
+      <!-- <div class="col-12 col-sm-6"> -->
         <div class="card-trip mb-3">
           <%= image_tag movie.poster_url %>
           <div class="card-trip-infos">
@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     <% end %>
   </div>
 
